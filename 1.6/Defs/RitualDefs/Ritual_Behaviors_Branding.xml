@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RitualBehaviorDef>
+    <defName>toast_BrandingBehavior</defName>
+    <durationTicks>7500</durationTicks>
+    <roles Inherit="False">
+      <!-- The moral guide. Preferred to be an actual IdeoRole_Moralist, but
+           substitutable so any pawn can step in at reduced quality. -->
+      <li Class="RitualRoleTag">
+        <label>brander</label>
+        <id>brander</id>
+        <tag>Moralist</tag>
+        <precept>IdeoRole_Moralist</precept>
+        <required>True</required>
+        <maxCount>1</maxCount>
+        <substitutable>True</substitutable>
+        <countsAsParticipant>False</countsAsParticipant>
+      </li>
+      <!-- The one being branded. SlaveBranding.RitualRole_Target accepts any
+           humanlike pawn, overriding the default faction/ideo restrictions. -->
+      <li Class="SlaveBranding.RitualRole_Target">
+        <label>brandee</label>
+        <id>target</id>
+        <maxCount>1</maxCount>
+        <required>True</required>
+        <missingDesc>someone to brand</missingDesc>
+        <ignoreBleeding>True</ignoreBleeding>
+        <allowOtherIdeos>True</allowOtherIdeos>
+        <allowNonAggroMentalState>True</allowNonAggroMentalState>
+        <countsAsParticipant>False</countsAsParticipant>
+      </li>
+    </roles>
+    <spectatorsLabel>Witnesses</spectatorsLabel>
+    <spectatorGerund>witness</spectatorGerund>
+
+    <stages>
+      <!-- 1. Brander gathers one piece of steel. -->
+      <li>
+        <defaultDuty>Spectate</defaultDuty>
+        <essential>True</essential>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>1</percentage>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>brander</roleId>
+            <dutyDef>toast_GatherBrandingSteel</dutyDef>
+          </li>
+        </roleBehaviors>
+        <!-- Return the steel if the ritual is abandoned before branding. -->
+        <pawnLeaveAction Class="RitualStageAction_DropThing">
+          <def>Steel</def>
+          <count>1</count>
+        </pawnLeaveAction>
+        <interruptedAction Class="RitualStageAction_DropThing">
+          <def>Steel</def>
+          <count>1</count>
+        </interruptedAction>
+      </li>
+
+      <!-- 2. Brander escorts the target ONTO the ritual spot and pins them there.
+           DeliverPawnToAltar sets exactCell, which places the pawn on the target
+           cell rather than beside it. The stun keeps them immobile for the
+           remainder of the ritual. -->
+      <li Class="RitualStage_InteractWithRole">
+        <targets>
+          <li>
+            <pawnId>brander</pawnId>
+            <targetId>target</targetId>
+          </li>
+        </targets>
+        <defaultDuty>Spectate</defaultDuty>
+        <endTriggers>
+          <li Class="StageEndTrigger_PawnDeliveredOrNotValid"/>
+        </endTriggers>
+        <failTriggers>
+          <li Class="StageFailTrigger_TargetPawnUnreachable">
+            <takerId>brander</takerId>
+            <takeeId>target</takeeId>
+            <desc>brandee is not reachable.</desc>
+          </li>
+          <li Class="StageFailTrigger_PawnAsleep">
+            <pawnId>brander</pawnId>
+            <desc>brander is asleep</desc>
+          </li>
+        </failTriggers>
+        <preAction Class="RitualStageAction_StunPawns">
+          <roleIds>
+            <li>target</li>
+          </roleIds>
+          <stunDurationTicks>7000</stunDurationTicks>
+        </preAction>
+        <roleBehaviors>
+          <li>
+            <roleId>brander</roleId>
+            <dutyDef>DeliverPawnToAltar</dutyDef>
+          </li>
+          <li>
+            <roleId>target</roleId>
+            <dutyDef>LayDownAwake</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_OnInteractionCell"/>
+            </customPositions>
+          </li>
+        </roleBehaviors>
+      </li>
+
+      <!-- 3. The branding. Brander stands beside the target holding the iron;
+           the dialog opens once everyone has gathered. -->
+      <li Class="RitualStage_InteractWithRole">
+        <targets>
+          <li>
+            <pawnId>brander</pawnId>
+            <targetId>target</targetId>
+          </li>
+        </targets>
+        <defaultDuty>Spectate</defaultDuty>
+        <allowedSpectateSidesOverride>Horizontal</allowedSpectateSidesOverride>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>1</percentage>
+          </li>
+          <!-- If the brandee dies mid-branding, stop the stage rather than
+               opening a dialog for a corpse. -->
+          <li Class="StageEndTrigger_PawnDead">
+            <roleId>target</roleId>
+          </li>
+        </endTriggers>
+        <postAction Class="SlaveBranding.RitualStageAction_ChooseBrand"/>
+        <roleBehaviors>
+          <li>
+            <roleId>brander</roleId>
+            <dutyDef>toast_HoldBrandingIron</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_BesideThing"/>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>target</roleId>
+            <dutyDef>LayDownAwake</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_OnInteractionCell"/>
+            </customPositions>
+          </li>
+        </roleBehaviors>
+        <highlightRolePawns>
+          <li>target</li>
+          <li>brander</li>
+        </highlightRolePawns>
+      </li>
+    </stages>
+  </RitualBehaviorDef>
+
+</Defs>

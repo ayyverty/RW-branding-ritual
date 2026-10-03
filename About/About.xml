@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Branding Ritual</name>
+  <author>toasterbath</author>
+  <packageId>branding.ritual</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modVersion>1.6.1.0</modVersion>
+  <modDependencies>
+    <li>
+      <packageId>ludeon.rimworld.ideology</packageId>
+      <displayName>Ideology</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/1149644504</steamWorkshopUrl>
+      <downloadUrl>https://rimworldgame.com/dlc/ideology</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>ludeon.rimworld.ideology</li>
+  </loadAfter>
+  <description><![CDATA[
+Adds an ideology-neutral ritual for marking a pawn with a permanent brand.
+
+A moral guide gathers a piece of steel, carries the target onto the ritual spot or altar, and holds the iron beside them while you choose a mark. The target is held in place for the duration and cannot walk away.
+
+Every ideology may perform the ritual: it requires no memes and no additional precepts, so it is always available.
+
+Four brands are offered, each leaving a different permanent mark:
+
+Brand of Service
+The bearer works faster, but holds them back in every conversation.
+
+Brand of Chains
+The bearer is held fast and stays docile. Slave suppression lasts far longer and they rarely think of rebellion. They have little left to say for themselves.
+
+Brand of Pain
+Feeling runs shallow beneath the mark. The bearer shrugs off what should floor them and rarely goes down from pain. Still, they have little left to say for themselves.
+
+Brand of Pleasure
+The bearer draws others in and holds attention easily. Their focus wanders and work suffers for it.
+
+The brands are permanent. Choose carefully.
+
+Developed against RimWorld 1.6.4871.
+	]]></description>
+</ModMetaData>

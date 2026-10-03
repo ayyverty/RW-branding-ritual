@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Ritual precept. Deliberately carries no requiredMemes / associatedMemes /
+       exclusionTags / requiredPrecepts, following vanilla FestivalBase, so the
+       ritual is available to every ideology without mod patching. -->
+  <PreceptDef>
+    <defName>toast_Branding</defName>
+    <label>branding</label>
+    <description>A ritual in which a moral guide marks a person with heated iron, leaving a permanent brand. The brand can be worked faster, made docile, dulled against pain, or made attractive - but it never fades.</description>
+    <issue>Ritual</issue>
+    <impact>Medium</impact>
+    <iconPath>UI/Icons/Rituals/RitualScarification</iconPath>
+    <preceptClass>Precept_Ritual</preceptClass>
+    <ritualPatternBase>toast_BrandingRitual</ritualPatternBase>
+    <allowDuplicates>false</allowDuplicates>
+    <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+    <ignoreLimitsInEditMode>true</ignoreLimitsInEditMode>
+    <receivesExpectationsQualityOffset>true</receivesExpectationsQualityOffset>
+    <visible>true</visible>
+    <listedForRoles>true</listedForRoles>
+    <canGenerateAsSpecialPrecept>false</canGenerateAsSpecialPrecept>
+    <selectionWeight>1</selectionWeight>
+  </PreceptDef>
+
+</Defs>

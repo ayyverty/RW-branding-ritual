@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Stage 1: brander fetches one piece of steel. If the steel is already in
+       inventory this resolves immediately and the pawn idles until the stage
+       timer runs out. -->
+  <DutyDef>
+    <defName>toast_GatherBrandingSteel</defName>
+    <hook>HighPriority</hook>
+    <socialModeMax>Off</socialModeMax>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_TakeCountToInventory">
+          <def>Steel</def>
+          <count>1</count>
+        </li>
+        <li Class="JobGiver_Idle">
+          <ticks>60</ticks>
+        </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <!-- Stage 3: brander keeps the steel in hand and waits. -->
+  <DutyDef>
+    <defName>toast_HoldBrandingIron</defName>
+    <hook>HighPriority</hook>
+    <socialModeMax>Off</socialModeMax>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Top up inventory if the iron was lost before the branding stage. -->
+        <li Class="JobGiver_TakeCountToInventory">
+          <def>Steel</def>
+          <count>1</count>
+        </li>
+        <li Class="SlaveBranding.JobGiver_HoldBrandingIron"/>
+        <li Class="JobGiver_Idle">
+          <ticks>60</ticks>
+        </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+</Defs>

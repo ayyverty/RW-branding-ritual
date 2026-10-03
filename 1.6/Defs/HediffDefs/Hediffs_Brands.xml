@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- All brands are permanent global hediffs. Permanence comes from having no
+       HediffCompProperties_Disappears comp and tendable=false, so nothing
+       removes them on its own. Severity never changes (initialSeverity 1) and
+       stages apply stat effects at full strength. Stat effects live on
+       HediffStage, not HediffDef. -->
+
+  <HediffDef>
+    <defName>toast_BrandOfServiceHediff</defName>
+    <label>brand of service</label>
+    <description>The bearer works faster, but is withdrawn and slow to warm to others.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <label>branded</label>
+        <statFactors>
+          <WorkSpeedGlobal>1.15</WorkSpeedGlobal>
+          <SocialImpact>0.85</SocialImpact>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>toast_BrandOfChainsHediff</defName>
+    <label>brand of chains</label>
+    <description>The bearer is held fast and docile, and is withdrawn.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <label>branded</label>
+        <!-- SlaveSuppressionOffset has a zero base value, so this must be a flat
+             offset; a statFactor multiplier would multiply zero and do nothing. -->
+        <statOffsets>
+          <SlaveSuppressionOffset>0.25</SlaveSuppressionOffset>
+        </statOffsets>
+        <statFactors>
+          <SocialImpact>0.85</SocialImpact>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>toast_BrandOfPainHediff</defName>
+    <label>brand of pain</label>
+    <description>The bearer feels less pain than they should, and is withdrawn.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <label>branded</label>
+        <!-- Negative painOffset lowers total felt pain, so the bearer is harder
+             to down. Clamped at 0, so a healthy wearer absorbs the whole value. -->
+        <painOffset>-0.3</painOffset>
+        <statFactors>
+          <SocialImpact>0.85</SocialImpact>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>toast_BrandOfPleasureHediff</defName>
+    <label>brand of pleasure</label>
+    <description>The bearer is socially magnetic but unfocused at work.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <label>branded</label>
+        <statFactors>
+          <SocialImpact>1.2</SocialImpact>
+          <WorkSpeedGlobal>0.85</WorkSpeedGlobal>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

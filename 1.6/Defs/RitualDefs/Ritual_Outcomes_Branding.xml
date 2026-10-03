@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    Ritual quality here drives participant mood only; it does NOT gate which
+    brand is applied. The brand is always the player's explicit choice in the
+    dialog, so the ritual succeeds with any quality outcome.
+  -->
+  <RitualOutcomeEffectDef>
+    <defName>toast_BrandingOutcome</defName>
+    <description>Depending on ritual quality, the witnesses will get between {MINMOOD} and {MAXMOOD} mood for {MOODDAYS} days.</description>
+    <workerClass>RitualOutcomeEffectWorker_FromQuality</workerClass>
+    <allowAttachableOutcome>false</allowAttachableOutcome>
+    <givesDevelopmentPoints>false</givesDevelopmentPoints>
+    <startingQuality>0.5</startingQuality>
+    <minQuality>0.2</minQuality>
+    <maxQuality>0.9</maxQuality>
+    <comps>
+      <li Class="RitualOutcomeComp_RolePresentNotSubstituted">
+        <roleId>brander</roleId>
+        <label>moral guide present</label>
+        <qualityOffset>0.2</qualityOffset>
+        <disableInClassicMode>true</disableInClassicMode>
+      </li>
+      <li Class="RitualOutcomeComp_ParticipantCount">
+        <label>witness count</label>
+        <curve>
+          <points>
+            <li>(0, 0.0)</li>
+            <li>(3, 0.2)</li>
+            <li>(8, 0.5)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_RitualTargetDefs">
+        <defs>
+          <li>RitualSpot</li>
+        </defs>
+        <label>held at a ritual spot</label>
+        <expectedThingLabelTip>a ritual spot</expectedThingLabelTip>
+        <qualityOffset>0.05</qualityOffset>
+        <allowAltars>true</allowAltars>
+      </li>
+    </comps>
+    <outcomeChances>
+      <li>
+        <label>Cruel</label>
+        <chance>0.25</chance>
+        <description>The {0} was cruel. The witnesses watched in silence, disturbed by what was done.</description>
+        <positivityIndex>-1</positivityIndex>
+      </li>
+      <li>
+        <label>Unsparing</label>
+        <chance>0.35</chance>
+        <description>The {0} was unsparing. The iron was pressed deep and held there long.</description>
+        <positivityIndex>0</positivityIndex>
+      </li>
+      <li>
+        <label>Clean</label>
+        <chance>0.4</chance>
+        <description>The {0} was clean. The mark was precise, and it was over quickly.</description>
+        <positivityIndex>1</positivityIndex>
+      </li>
+    </outcomeChances>
+  </RitualOutcomeEffectDef>
+
+</Defs>

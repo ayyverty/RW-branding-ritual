@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SlaveBranding.BrandDef>
+    <defName>toast_BrandOfService</defName>
+    <label>Brand of Service</label>
+    <description>A mark of hard-won obedience. The bearer works faster, but holds them back in every conversation.</description>
+    <hediffDef>toast_BrandOfServiceHediff</hediffDef>
+  </SlaveBranding.BrandDef>
+
+  <SlaveBranding.BrandDef>
+    <defName>toast_BrandOfChains</defName>
+    <label>Brand of Chains</label>
+    <description>The bearer is held fast and stays docile. Slave suppression lasts far longer, and they rarely think of rebellion. They have little left to say for themselves.</description>
+    <hediffDef>toast_BrandOfChainsHediff</hediffDef>
+  </SlaveBranding.BrandDef>
+
+  <SlaveBranding.BrandDef>
+    <defName>toast_BrandOfPain</defName>
+    <label>Brand of Pain</label>
+    <description>Feeling runs shallow beneath the mark. The bearer shrugs off what should floor them, and rarely goes down from pain. Still, they have little left to say for themselves.</description>
+    <hediffDef>toast_BrandOfPainHediff</hediffDef>
+  </SlaveBranding.BrandDef>
+
+  <SlaveBranding.BrandDef>
+    <defName>toast_BrandOfPleasure</defName>
+    <label>Brand of Pleasure</label>
+    <description>The bearer draws others in and holds attention easily. Their focus wanders, and work suffers for it.</description>
+    <hediffDef>toast_BrandOfPleasureHediff</hediffDef>
+  </SlaveBranding.BrandDef>
+
+</Defs>

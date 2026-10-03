@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <SB_BrandingDialogTitle>Choosing a Brand</SB_BrandingDialogTitle>
+  <SB_BrandingDialogBody>The iron is hot and {0} is held in place. Choose the mark that will be burned into them. It will not fade.</SB_BrandingDialogBody>
+  <SB_BrandingChoose>Brand them</SB_BrandingChoose>
+  <SB_BrandingCancel>Leave unbranded</SB_BrandingCancel>
+  <SB_BrandingNoTarget>there is nobody to brand</SB_BrandingNoTarget>
+  <SB_BrandingNotHumanlike>only a person can be branded</SB_BrandingNotHumanlike>
+  <SB_BrandingSelfTarget>the brander cannot brand themselves</SB_BrandingSelfTarget>
+  <SB_BrandingNoTargetLeft>the brandee is no longer available to brand</SB_BrandingNoTargetLeft>
+
+</LanguageData>

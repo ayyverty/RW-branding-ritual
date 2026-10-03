@@ -1,0 +1,5 @@
+/home/avery/Projects/rjw-slavebranding-ritual/Source/SlaveBranding/obj/Release/SlaveBranding.csproj.AssemblyReference.cache
+/home/avery/Projects/rjw-slavebranding-ritual/Source/SlaveBranding/obj/Release/SlaveBranding.GeneratedMSBuildEditorConfig.editorconfig
+/home/avery/Projects/rjw-slavebranding-ritual/Source/SlaveBranding/obj/Release/SlaveBranding.csproj.CoreCompileInputs.cache
+/home/avery/Projects/rjw-slavebranding-ritual/1.6/Assemblies/SlaveBranding.dll
+/home/avery/Projects/rjw-slavebranding-ritual/Source/SlaveBranding/obj/Release/SlaveBranding.dll

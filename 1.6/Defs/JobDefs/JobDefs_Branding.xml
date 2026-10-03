@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Mirrors vanilla PickupToHold, but the driver keeps holding afterwards
+       instead of ending the moment the thing is picked up. -->
+  <JobDef>
+    <defName>toast_HoldBrandingIron</defName>
+    <driverClass>SlaveBranding.JobDriver_HoldBrandingIron</driverClass>
+    <reportString>holding the branding iron.</reportString>
+    <carryThingAfterJob>true</carryThingAfterJob>
+    <dropThingBeforeJob>false</dropThingBeforeJob>
+    <casualInterruptible>false</casualInterruptible>
+    <playerInterruptible>true</playerInterruptible>
+  </JobDef>
+
+</Defs>

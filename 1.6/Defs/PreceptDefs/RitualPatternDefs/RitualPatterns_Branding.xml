@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RitualPatternDef>
+    <defName>toast_BrandingRitual</defName>
+    <ritualExpectedDesc>A moral guide can brand a person, leaving a permanent mark that shapes them for life.</ritualExpectedDesc>
+    <iconPathOverride>UI/Icons/Rituals/RitualScarification</iconPathOverride>
+    <canStartAnytime>true</canStartAnytime>
+    <ritualObligationTargetFilter>RitualSpotOrAltar</ritualObligationTargetFilter>
+    <ritualBehavior>toast_BrandingBehavior</ritualBehavior>
+    <ritualOutcomeEffect>toast_BrandingOutcome</ritualOutcomeEffect>
+    <ritualOnlyForIdeoMembers>false</ritualOnlyForIdeoMembers>
+    <descOverride>A moral guide gathers a piece of steel and carries the target onto the ritual spot, pinning them there. You then choose a brand, and it is burned into them permanently.</descOverride>
+  </RitualPatternDef>
+
+</Defs>
