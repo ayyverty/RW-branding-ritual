@@ -5,6 +5,9 @@
     Ritual quality here drives participant mood only; it does NOT gate which
     brand is applied. The brand is always the player's explicit choice in the
     dialog, so the ritual succeeds with any quality outcome.
+
+    Each outcome references a <memory> ThoughtDef in ThoughtDefs/ so witnesses
+    actually gain (or lose) mood. Unsparing is intentionally mood-neutral.
   -->
   <RitualOutcomeEffectDef>
     <defName>toast_BrandingOutcome</defName>
@@ -46,18 +49,21 @@
       <li>
         <label>Cruel</label>
         <chance>0.25</chance>
+        <memory>toast_CruelBranding</memory>
         <description>The {0} was cruel. The witnesses watched in silence, disturbed by what was done.</description>
         <positivityIndex>-1</positivityIndex>
       </li>
       <li>
         <label>Unsparing</label>
         <chance>0.35</chance>
+        <memory>toast_UnsparingBranding</memory>
         <description>The {0} was unsparing. The iron was pressed deep and held there long.</description>
         <positivityIndex>0</positivityIndex>
       </li>
       <li>
         <label>Clean</label>
         <chance>0.4</chance>
+        <memory>toast_CleanBranding</memory>
         <description>The {0} was clean. The mark was precise, and it was over quickly.</description>
         <positivityIndex>1</positivityIndex>
       </li>

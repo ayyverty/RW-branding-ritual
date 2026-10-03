@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Memory thoughts for branding outcomes. RitualOutcomeEffectWorker_FromQuality
+       picks the outcome from ritual quality and hands the matching <memory>
+       ThoughtDef to every witness, so the baseMoodEffect here is what witnesses
+       actually feel. Values follow vanilla's scarification thoughts: muted,
+       6 days, stack limit 3. An "unsparing" result is deliberately mood-neutral. -->
+
+  <ThoughtDef>
+    <defName>toast_CruelBranding</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>cruel branding</label>
+        <description>That branding was cruel. The witnesses watched in silence, disturbed by what was done.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>toast_UnsparingBranding</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>unsparing branding</label>
+        <description>That branding was unsparing. The iron was pressed deep and held there long.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>toast_CleanBranding</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>clean branding</label>
+        <description>That branding was clean. The mark was precise, and it was over quickly.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

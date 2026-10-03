@@ -35,13 +35,17 @@
     <spectatorGerund>witness</spectatorGerund>
 
     <stages>
-      <!-- 1. Brander gathers one piece of steel. -->
+      <!-- 1. Brander gathers one piece of steel.
+           StageEndTrigger_DurationPercentage measures CUMULATIVE progress across
+           the whole ritual, not progress within this stage (vanilla's three-stage
+           rituals use 0.3 -> 0.7 -> 1.0). Stage 2 ends on delivery rather than on
+           a timer, so stage 3 simply runs whatever remains up to 1. -->
       <li>
         <defaultDuty>Spectate</defaultDuty>
         <essential>True</essential>
         <endTriggers>
           <li Class="StageEndTrigger_DurationPercentage">
-            <percentage>1</percentage>
+            <percentage>0.3</percentage>
           </li>
         </endTriggers>
         <roleBehaviors>
