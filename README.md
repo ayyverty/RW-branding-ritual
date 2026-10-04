@@ -134,11 +134,34 @@ Outcomes roll as:
 
 Each outcome hands its witnesses a memory for 6 days, stacking up to 3 times. **Unsparing is deliberately mood-neutral** — a competent but unremarkable result neither cheers nor appalls anyone. Only the brander, brandee, and witnesses are involved; no letter or development points are generated.
 
+## Mood effects
+
+Branding also produces **continuous** mood effects, separate from the ritual outcome memories above. Unlike the outcome thoughts, these are re-evaluated as the colony changes rather than lasting a fixed number of days.
+
+The first two are measured against a **pool**: the colony's **slaves**, the colony's **prisoners**, and the colony's **free colonists whose gender is not the supreme gender of their ideology**.
+
+| Thought | Mood | Applies when |
+|---|---:|---|
+| **All accounted for** | +6 | The pool is non-empty and every member of it is branded |
+| **Unbranded** | −6 | The pool is non-empty and at least one member is not branded |
+| **Branded** | −8 | The pawn carrying the thought is themselves branded |
+
+**All accounted for** and **Unbranded** are mutually exclusive. They apply only to pawns you control who are not themselves enslaved or imprisoned, so a branded pawn never gets the colony-wide thought on top of the personal one.
+
+**Branded** applies to any branded pawn regardless of faction or standing, including guests.
+
+If the pool is **empty** — no slaves, no prisoners, and no free colonists of a non-supremacist gender — neither colony thought applies. There is nothing to be satisfied or dissatisfied about.
+
+**Unbranded** is the state a colony starts in and the state a newly taken prisoner returns it to, so expect it to be the thought you see most often.
+
 ## Known limitations
 
 - **Dialog can be skipped.** `RitualStageAction_ChooseBrand` declines to open if any non-immediate dialog is already up, and does not retry. If another modal window happens to be open when the stage fires, no brand dialog appears for that ritual.
 - **Restraint is a timed stun.** Immutability comes from vanilla's `RitualStageAction_StunPawns` at 7000 ticks rather than a persistent restraint hediff. If the ritual is forcibly interrupted the stun can outlive it.
 - **Target role filtering is permissive.** `RitualRole_Target` overrides the default restrictions and accepts any humanlike pawn, including downed ones and children. It does not check for dead pawns beyond what the base ritual logic already filters.
+- **Colony mood thoughts are cached for 250 ticks.** `BrandingMoodCache` rescans at most once every 250 ticks (~4 s at normal speed) so that a mood recalculation does not rescan the colony once per pawn. Applying a brand invalidates the cache immediately, so the player never waits on it; a pawn gaining or losing slave or prisoner status can take up to 250 ticks to be reflected.
+- **Mood thought text is not tied to the mechanic.** "All accounted for" and "Unbranded" both mention assigning duties, but nothing in this mod tracks duties — a branded pawn can be idle. The text is flavour, not a guarantee.
+- **Non-supremacist colonists count toward the pool.** A free colonist of a non-supremacist gender is part of the measured set, so one unbranded colonist will keep the colony on **Unbranded**. If you would rather measure only slaves and prisoners, drop the `IsNonSupremacistGender` call at the end of `BrandingUtility.IsInBrandingPool`.
 
 ## Credits
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Continuous mood effects driven by the brand hediffs, as opposed to the
+       one-shot ritual outcome memories in Thoughts_Branding_Quality.xml. Each
+       def names a ThoughtWorker that decides whether it applies right now.
+
+       Two of them read the same cached pool state (see BrandingMoodCache), so
+       they are mutually exclusive: either every pawn the colony holds carries a
+       brand, or at least one does not. The pool is the colony's slaves and
+       prisoners plus its free colonists of a non-supremacist gender. A pawn who
+       holds none of those is not measured, and neither thought applies.
+
+       "Unbranded" is the more common of the pair by design: it is the state the
+       colony starts in and the state a newly taken prisoner returns it to. -->
+
+  <ThoughtDef>
+    <defName>toast_AllAccountedFor</defName>
+    <workerClass>SlaveBranding.ThoughtWorker_AllBranded</workerClass>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>All accounted for</label>
+        <description>Every slave and prisoner has been marked. Everyone has been assigned their duties.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>toast_Unbranded</defName>
+    <workerClass>SlaveBranding.ThoughtWorker_NotAllBranded</workerClass>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Unbranded</label>
+        <description>Some of our property is unmarked. We must mark our property and assign them duties.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>toast_Branded</defName>
+    <workerClass>SlaveBranding.ThoughtWorker_Branded</workerClass>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Branded</label>
+        <description>The iron went into my skin and branded me as lesser. It's humiliating.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>
